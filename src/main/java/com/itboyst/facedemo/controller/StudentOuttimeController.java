@@ -15,7 +15,6 @@ import com.itboyst.facedemo.dto.FaceUserInfo;
 import com.itboyst.facedemo.dto.ProcessInfo;
 import com.itboyst.facedemo.enums.ErrorCodeEnum;
 import com.itboyst.facedemo.service.FaceEngineService;
-import com.itboyst.facedemo.service.IStudentOuttimeService;
 import com.itboyst.facedemo.service.UserFaceInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,8 +46,6 @@ public class StudentOuttimeController {
     FaceEngineService faceEngineService;
     @Autowired
     UserFaceInfoService userFaceInfoService;
-    @Autowired
-    private IStudentOuttimeService studentOuttimeService;
 
     @RequestMapping(value = "/outtime")
     public String outtime() {
@@ -60,7 +57,7 @@ public class StudentOuttimeController {
      */
     @RequestMapping(value = "/faceSearch", method = RequestMethod.POST)
     @ResponseBody
-    public Result<FaceSearchResDto> faceSearch(String file) throws Exception {
+    public Result<Object> faceSearch(String file) throws Exception {
 
         byte[] decode = Base64.decode(base64Process(file));
         BufferedImage bufImage = ImageIO.read(new ByteArrayInputStream(decode));
@@ -80,8 +77,6 @@ public class StudentOuttimeController {
             FaceSearchResDto faceSearchResDto = new FaceSearchResDto();
             BeanUtil.copyProperties(faceUserInfo, faceSearchResDto);
             List<ProcessInfo> processInfoList = faceEngineService.process(imageInfo);
-
-            StudentOuttime studentOuttime = new StudentOuttime();
 
             if (CollectionUtil.isNotEmpty(processInfoList)) {
                 //人脸检测
@@ -104,10 +99,14 @@ public class StudentOuttimeController {
                 faceSearchResDto.setGender(processInfoList.get(0).getGender().equals(1) ? "女" : "男");
 
             }
-
+            /**
+             * 写入出寝记录并改变在寝状态
+             */
+            StudentOuttime studentOuttime = new StudentOuttime();
             studentOuttime.setIdcard(userFaceInfoService.getgetIdByFace(faceSearchResDto));
             studentOuttime.setName(faceSearchResDto.getName());
-            studentOuttimeService.insertStudentOuttime(studentOuttime);
+            userFaceInfoService.insertStudentOuttime(studentOuttime);
+            userFaceInfoService.updateIsOut(studentOuttime);
 
             return Results.newSuccessResult(faceSearchResDto);
         }

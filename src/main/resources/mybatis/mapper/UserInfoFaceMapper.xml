@@ -19,6 +19,16 @@
         VALUES (#{groupId}, #{name}, #{faceId}, #{faceFeature})
     </insert>
 
+    <insert id="insertStudentOuttime" parameterType="com.itboyst.facedemo.domain.StudentOuttime">
+        insert into student_outtime(idcard, name)
+        VALUES (#{idcard}, #{name})
+    </insert>
+    <update id="updateIsOut" parameterType="com.itboyst.facedemo.domain.StudentOuttime">
+        update student_info
+        set isin = '不在'
+        where idcard = #{idcard}
+    </update>
+
     <select id="getUserFaceInfo" resultMap="userFace2" resultType="com.itboyst.facedemo.dto.FaceUserInfo">
         select name, face_id, face_feature
         from student_face

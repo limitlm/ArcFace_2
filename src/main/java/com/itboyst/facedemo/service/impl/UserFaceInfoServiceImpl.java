@@ -1,5 +1,6 @@
 package com.itboyst.facedemo.service.impl;
 
+import com.itboyst.facedemo.domain.StudentOuttime;
 import com.itboyst.facedemo.domain.UserFaceInfo;
 import com.itboyst.facedemo.dto.FaceSearchResDto;
 import com.itboyst.facedemo.mapper.MybatisUserFaceInfoMapper;
@@ -18,6 +19,16 @@ public class UserFaceInfoServiceImpl implements UserFaceInfoService {
     @Override
     public void insertSelective(UserFaceInfo userFaceInfo) {
         userFaceInfoMapper.insertUserFaceInfo(userFaceInfo);
+    }
+
+    @Override
+    public void insertStudentOuttime(StudentOuttime studentOuttime) {
+        userFaceInfoMapper.insertStudentOuttime(studentOuttime);
+    }
+
+    @Override
+    public void updateIsOut(StudentOuttime studentOuttime) {
+        userFaceInfoMapper.updateIsOut(studentOuttime);
     }
 
     @Override
