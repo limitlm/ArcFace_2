@@ -1,6 +1,7 @@
 package com.itboyst.facedemo.mapper;
 
 import com.itboyst.facedemo.domain.UserFaceInfo;
+import com.itboyst.facedemo.dto.FaceSearchResDto;
 import com.itboyst.facedemo.dto.FaceUserInfo;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -14,4 +15,6 @@ public interface MybatisUserFaceInfoMapper {
     List<FaceUserInfo> getUserFaceInfo();
 
     int countUserById(UserFaceInfo userFaceInfo);
+
+    Integer getIdByFace(FaceSearchResDto faceSearchResDto);
 }

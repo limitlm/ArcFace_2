@@ -30,4 +30,10 @@
         where idcard = #{groupId}
     </select>
 
+    <select id="getIdByFace" parameterType="com.itboyst.facedemo.dto.FaceSearchResDto" resultType="java.lang.Integer">
+        select idcard
+        from student_face
+        where face_id = #{faceId}
+    </select>
+
 </mapper>

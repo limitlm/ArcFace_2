@@ -1,9 +1,5 @@
 package com.itboyst.facedemo.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import java.util.Date;
-
 /**
  * 出寝时间记录对象 student_outtime
  *
@@ -11,8 +7,6 @@ import java.util.Date;
  * @date 2022-04-15
  */
 public class StudentOuttime {
-    private static final long serialVersionUID = 1L;
-
     /**
      * 学号
      */
@@ -23,34 +17,18 @@ public class StudentOuttime {
      */
     private String name;
 
-    /**
-     * 出寝时间
-     */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date outtime;
-
     public Integer getIdcard() {
         return idcard;
-    }
-
-    public void setIdcard(Integer idcard) {
-        this.idcard = idcard;
     }
 
     public String getName() {
         return name;
     }
 
+    public void setIdcard(Integer idcard) {
+        this.idcard = idcard;
+    }
+
     public void setName(String name) {
-        this.name = name;
     }
-
-    public Date getOuttime() {
-        return outtime;
-    }
-
-    public void setOuttime(Date outtime) {
-        this.outtime = outtime;
-    }
-
 }

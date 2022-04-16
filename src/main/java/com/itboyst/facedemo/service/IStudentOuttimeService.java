@@ -15,6 +15,6 @@ public interface IStudentOuttimeService {
      * @param studentOuttime 出寝时间记录
      * @return 结果
      */
-    public int insertStudentOuttime(StudentOuttime studentOuttime);
+    public void insertStudentOuttime(StudentOuttime studentOuttime);
 
 }

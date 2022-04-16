@@ -24,8 +24,8 @@ public class StudentOuttimeServiceImpl implements IStudentOuttimeService {
      * @return 结果
      */
     @Override
-    public int insertStudentOuttime(StudentOuttime studentOuttime) {
-        return studentOuttimeMapper.insertStudentOuttime(studentOuttime);
+    public void insertStudentOuttime(StudentOuttime studentOuttime) {
+        studentOuttimeMapper.insertStudentOuttime(studentOuttime);
     }
 
 }
