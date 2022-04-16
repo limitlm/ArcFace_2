@@ -1,0 +1,26 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itboyst.facedemo.mapper.MybatisUserFaceInfoMapper">
+    <resultMap id="userFace" type="com.itboyst.facedemo.domain.UserFaceInfo">
+        <result column="group_id" property="groupId" javaType="java.lang.Integer"/>
+        <result column="face_id" property="faceId" javaType="String"/>
+        <result column="face_feature" property="faceFeature"/>
+    </resultMap>
+
+    <resultMap id="userFace2" type="com.itboyst.facedemo.dto.FaceUserInfo">
+        <result column="name" property="name" javaType="String"/>
+        <result column="face_id" property="faceId" javaType="String"/>
+        <result column="face_feature" property="faceFeature"/>
+    </resultMap>
+
+    <insert id="insertUserFaceInfo" parameterType="com.itboyst.facedemo.domain.UserFaceInfo">
+        INSERT INTO student_face (idcard, name, face_id, face_feature)
+        VALUES (#{groupId}, #{name}, #{faceId}, #{faceFeature})
+    </insert>
+
+    <select id="getUserFaceInfo" resultMap="userFace2" resultType="com.itboyst.facedemo.dto.FaceUserInfo">
+        select name, face_id, face_feature
+        from student_face
+    </select>
+</mapper>
