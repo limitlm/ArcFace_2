@@ -13,7 +13,7 @@
 <body>
 <div class="layui-tab">
     <ul class="layui-tab-title">
-        <li class="layui-this">人脸注册</li>
+        <li class="layui-this">模拟出寝摄像头</li>
     </ul>
     <div style="position: absolute;margin-left: 40px">
         <style type="text/css">
@@ -47,7 +47,7 @@
         </style>
     </div>
     <div class="layui-tab-content" style="">
-        <div class="layui-tab-item layui-show"><#include "face_registration.ftl"></div>
+        <div class="layui-tab-item layui-show"><#include "face_search.ftl"></div>
     </div>
 </div>
 

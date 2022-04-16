@@ -5,6 +5,7 @@ public enum ErrorCodeEnum {
 
     MOK(0, "成功"),
     UNKNOWN(1, "该学生尚未登记详细信息，请先去后台登记"),
+    FACEEXIST(1, "该学号已存在人脸,如果要替换人脸信息请先重新注册学生信息"),
     INVALID_PARAM(2, "无效参数"),
     UNSUPPORTED(3, "引擎不支持"),
     NO_MEMORY(4, "内存不足"),

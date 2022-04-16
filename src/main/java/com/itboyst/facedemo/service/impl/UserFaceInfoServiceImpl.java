@@ -18,4 +18,11 @@ public class UserFaceInfoServiceImpl implements UserFaceInfoService {
     public void insertSelective(UserFaceInfo userFaceInfo) {
         userFaceInfoMapper.insertUserFaceInfo(userFaceInfo);
     }
+
+    @Override
+    public int countUserById(UserFaceInfo userFaceInfo) {
+        return userFaceInfoMapper.countUserById(userFaceInfo);
+    }
+
+
 }

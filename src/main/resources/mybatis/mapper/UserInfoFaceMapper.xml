@@ -23,4 +23,11 @@
         select name, face_id, face_feature
         from student_face
     </select>
+
+    <select id="countUserById" parameterType="com.itboyst.facedemo.domain.UserFaceInfo" resultType="java.lang.Integer">
+        select count(idcard)
+        from student_face
+        where idcard = #{groupId}
+    </select>
+
 </mapper>

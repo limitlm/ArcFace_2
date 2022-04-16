@@ -18,11 +18,11 @@
                             摄像头识别
                         </button>
                     </td>
-                    <td>
+                    <#--<td>
                         <button style="color:#FFFFFF;height: 30px;display:block;margin:0 auto;margin-top:10px;width:120px;background-color: #3F51B5;border-radius:5px;text-align: center;line-height: 30px;font-size: 20px"
                                 onclick="imageTo()">照片识别
                         </button>
-                    </td>
+                    </td>-->
                 </tr>
                 <tr>
                     <td colspan="2">

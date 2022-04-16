@@ -12,4 +12,6 @@ public interface MybatisUserFaceInfoMapper {
     void insertUserFaceInfo(UserFaceInfo userFaceInfo);
 
     List<FaceUserInfo> getUserFaceInfo();
+
+    int countUserById(UserFaceInfo userFaceInfo);
 }

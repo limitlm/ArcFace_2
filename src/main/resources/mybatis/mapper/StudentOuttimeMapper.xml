@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itboyst.facedemo.mapper.StudentOuttimeMapper">
+
+    <resultMap type="com.itboyst.facedemo.domain.StudentOuttime" id="StudentOuttimeResult">
+        <result property="idcard" column="idcard"/>
+        <result property="name" column="name"/>
+        <result property="outtime" column="outtime"/>
+    </resultMap>
+
+    <insert id="insertStudentOuttime" parameterType="com.itboyst.facedemo.domain.StudentOuttime">
+        insert into student_outtime
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="idcard != null">idcard,</if>
+            <if test="name != null">name,</if>
+            <if test="outtime != null">outtime,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="idcard != null">#{idcard},</if>
+            <if test="name != null">#{name},</if>
+            <if test="outtime != null">#{outtime},</if>
+        </trim>
+    </insert>
+
+</mapper>
