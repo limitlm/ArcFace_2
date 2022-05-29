@@ -1,6 +1,6 @@
 ## 开发环境准备：
 
-###开发使用到的软件和工具：
+### 开发使用到的软件和工具：
 
 * Jdk8、mysql5.7、libarcsoft_face.dll(so)、libarcsoft_face_engine.dll(so)、libarcsoft_face_engine_jni.dll(so)、idea
 * 注：libarcsoft_face.dll(so)、libarcsoft_face_engine.dll(so)、libarcsoft_face_engine_jni.dll(so)
